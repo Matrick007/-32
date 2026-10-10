@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Виртуальная лаборатория — интерактивные научные эксперименты прямо в браузере.">
+  <title>Виртуальная лаборатория</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Unbounded:wght@400;600;800;900&family=Russo+One&family=Caveat:wght@500;700&family=Press+Start+2P&family=EB+Garamond:ital,wght@0,400;0,600;0,800;1,500&family=Neucha&family=Poiret+One&family=Marck+Script&family=Oswald:wght@400;600;700&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">V<span>L</span></div>
+        <div>
+          <div class="brand-name">ВИРТУАЛЬНАЯ</div>
+          <div class="brand-subtitle">ЛАБОРАТОРИЯ</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-route="dashboard"><span class="nav-icon">⌂</span><span>Главная</span></button>
+        <button class="nav-item" data-route="laboratories"><span class="nav-icon">◈</span><span>Лаборатория</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="system-status">
+          <span class="status-dot"></span>
+          <div>
+            <div class="system-label">СИСТЕМА</div>
+            <div class="system-value">ЛОКАЛЬНО / ГОТОВО</div>
+          </div>
+        </div>
+        <div class="sidebar-note">HTML · CSS · VANILLA JAVASCRIPT<br>LOCAL RESEARCH ENVIRONMENT</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Открыть меню">☰</button>
+        <div class="breadcrumb" id="breadcrumb">Главная</div>
+        <div class="topbar-right">
+          <div class="clock" id="clock">--:--:--</div>
+          <div class="researcher-pill"><span class="researcher-dot"></span> Исследователь</div>
+        </div>
+      </header>
+      <div id="app"></div>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/projectile.js"></script>
+  <script src="js/pendulum.js"></script>
+  <script src="js/electricity.js"></script>
+  <script src="js/optics.js"></script>
+  <script src="js/freefall.js"></script>
+  <script src="js/hooke.js"></script>
+  <script src="js/density.js"></script>
+  <script src="js/heating.js"></script>
+  <script src="js/friction.js"></script>
+  <script src="js/buoyancy.js"></script>
+  <script src="js/gaslaw.js"></script>
+  <script src="js/energy.js"></script>
+  <script src="js/uniform.js"></script>
+  <script src="js/newton.js"></script>
+  <script src="js/collision.js"></script>
+  <script src="js/workpower.js"></script>
+  <script src="js/refraction.js"></script>
+  <script src="js/mirror.js"></script>
+  <script src="js/thermalexp.js"></script>
+  <script src="js/circuit.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

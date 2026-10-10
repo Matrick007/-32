@@ -1,0 +1,22 @@
+/* Дополнительные безопасные адаптивные правила. Основная адаптивность находится в style.css. */
+@media (max-width: 470px) {
+  .control-row { grid-template-columns: minmax(0, 1fr) 70px; }
+  .button-row .btn { flex: 1 1 44%; }
+  .metric-grid { gap: 6px; }
+  .metric { padding: 9px; }
+  .panel-body { padding: 12px; }
+  .lab-card { min-height: 182px; }
+}
+
+@media (max-width: 1150px) {
+  .experiment-dossier { grid-template-columns: 105px minmax(0,1fr) 255px; }
+}
+@media (max-width: 900px) {
+  .experiment-dossier { grid-template-columns: 95px 1fr; }
+  .creator-panel { grid-column: 1/-1; }
+}
+@media (max-width: 640px) {
+  .experiment-dossier { grid-template-columns: 1fr; }
+  .dossier-visual { min-height: 120px; }
+  .dossier-observation { gap: 16px; }
+}

@@ -1,0 +1,1918 @@
+/* =========================================================
+   ZINE HOME — главная страница: самодельный коллаж-журнал
+   ========================================================= */
+
+.zine-home { position: relative; color: #1c1616; }
+
+body { overflow-x: clip; }
+
+.zine-home::before {
+  content: "";
+  position: absolute;
+  inset: -28px -100vw 0 -100vw;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+    #fcf6ea;
+}
+
+.zine-hero {
+  position: relative;
+  overflow: hidden;
+  border: 2.5px solid #1c1616;
+  background: #fffdf4;
+  box-shadow: 10px 10px 0 #1c1616;
+}
+
+.zine-hero-strip {
+  height: 14px;
+  border-bottom: 2.5px solid #1c1616;
+  background: linear-gradient(90deg, #ea4c3c 0 16%, #ddf536 16% 34%, #79ca7c 34% 50%, #64badf 50% 67%, #886cff 67% 84%, #e8538d 84% 100%);
+}
+
+.zine-hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 30px 0;
+}
+
+.zine-hand-note {
+  font-family: "Caveat", cursive;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ea4c3c;
+}
+
+.zine-issue {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  color: #1c1616;
+  border: 1.5px dashed #1c1616;
+  padding: 6px 10px;
+  background: #fff;
+  transform: rotate(1.2deg);
+}
+
+.zine-tilt-l { transform: rotate(-2deg); }
+.zine-tilt-r { transform: rotate(1.6deg); }
+.zine-tilt-l2 { transform: rotate(-1.2deg); }
+
+.zine-hero-main {
+  display: flex;
+  gap: 30px;
+  padding: 34px 40px 10px;
+}
+
+.zine-hero-copy { flex: 1 1 auto; min-width: 0; }
+
+.zine-title {
+  margin: 0;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 900;
+  font-size: clamp(44px, 6.2vw, 92px);
+  line-height: 0.98;
+  letter-spacing: -3px;
+  color: #1c1616;
+}
+
+.zt-row { display: block; position: relative; }
+.zt-r1 { color: #1c1616; }
+
+.zt-r2 i {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.92em;
+  letter-spacing: -1px;
+  color: #ea4c3c;
+}
+
+.zt-r3 mark {
+  display: inline-block;
+  padding: 0 14px 4px;
+  background: #ddf536;
+  color: #1c1616;
+  transform: rotate(-1.4deg);
+  box-shadow: 5px 5px 0 #886cff;
+}
+
+.zt-hand {
+  display: inline-block;
+  margin-left: 14px;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: 0.42em;
+  letter-spacing: 0;
+  color: #886cff;
+  transform: rotate(3deg) translateY(-8px);
+}
+
+.zt-scribble {
+  position: absolute;
+  left: 4px;
+  bottom: -36px;
+  width: min(420px, 55%);
+  color: #e8538d;
+}
+
+.zine-lead {
+  max-width: 640px;
+  margin: 34px 0 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: #3a3128;
+}
+
+.zine-lead::first-letter {
+  font-family: "EB Garamond", serif;
+  font-weight: 800;
+  font-size: 46px;
+  line-height: 0.8;
+  float: left;
+  padding: 4px 8px 0 0;
+  color: #ea4c3c;
+}
+
+.zine-cta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+
+.zine-btn {
+  border: 2.5px solid #1c1616;
+  font-family: "Russo One", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  padding: 16px 26px;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.zine-btn-main {
+  background: #1c1616;
+  color: #ddf536;
+  box-shadow: 6px 6px 0 #e8538d;
+}
+
+.zine-btn-main .zine-btn-arrow { margin-left: 10px; color: #e8538d; }
+
+.zine-btn-main:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 #e8538d; }
+
+.zine-btn-alt {
+  background: #fff;
+  color: #1c1616;
+  box-shadow: 6px 6px 0 #79ca7c;
+  transform: rotate(-1deg);
+}
+
+.zine-btn-alt:hover { transform: rotate(-1deg) translate(2px, 2px); box-shadow: 3px 3px 0 #79ca7c; }
+
+.zine-hero-side {
+  position: relative;
+  flex: 0 0 240px;
+  min-height: 300px;
+}
+
+.zine-sticker {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2.5px dashed #1c1616;
+  border-radius: 50%;
+}
+
+.zine-sticker-main {
+  width: 168px;
+  height: 168px;
+  top: 6px;
+  right: 30px;
+  background: #e8538d;
+  color: #fff;
+  transform: rotate(9deg);
+  animation: zine-wobble 5s ease-in-out infinite;
+}
+
+.zine-sticker-main b {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 900;
+  font-size: 52px;
+  line-height: 1;
+}
+
+.zine-sticker-main span { font-size: 13px; font-weight: 600; line-height: 1.3; margin-top: 6px; }
+
+.zine-sticker-alt {
+  width: 108px;
+  height: 108px;
+  top: 170px;
+  right: 130px;
+  background: #ddf536;
+  color: #1c1616;
+  transform: rotate(-8deg);
+  font-family: "Russo One", sans-serif;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+@keyframes zine-wobble {
+  0%, 100% { transform: rotate(9deg); }
+  50% { transform: rotate(4deg) scale(1.03); }
+}
+
+.zine-doodle-star {
+  position: absolute;
+  top: 150px;
+  right: 6px;
+  width: 44px;
+  color: #ff7a29;
+  transform: rotate(14deg);
+}
+
+.zine-doodle-arrow {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  width: 86px;
+  color: #1c1616;
+  transform: rotate(8deg);
+}
+
+.zine-hero-bottom {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 30px;
+  padding: 12px 40px 18px;
+  font-family: "DM Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: 1.8px;
+  color: #1c1616;
+}
+
+.zine-hero-bottom i { color: #e8538d; font-style: normal; }
+
+/* ---------- бегущая строка ---------- */
+
+.zine-marquee {
+  overflow: hidden;
+  border: 2.5px solid #1c1616;
+  border-top: 0;
+  background: #1c1616;
+  padding: 12px 0;
+}
+
+.zine-marquee-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  white-space: nowrap;
+  animation: zine-marquee 40s linear infinite;
+}
+
+.zine-marquee:hover .zine-marquee-track { animation-play-state: paused; }
+
+.zine-marquee-track span {
+  font-family: "Russo One", sans-serif;
+  font-size: 14px;
+  color: #ddf536;
+  padding-right: 34px;
+}
+
+.zine-marquee-track b { margin-left: 34px; color: #e8538d; font-weight: 400; }
+
+@keyframes zine-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- статистика ---------- */
+
+.zine-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 40px 0 6px;
+}
+
+.zine-stat {
+  border: 2.5px solid #1c1616;
+  background: var(--zc);
+  color: var(--zi);
+  box-shadow: 7px 7px 0 #1c1616;
+  padding: 24px 22px;
+}
+
+.zine-stat b {
+  display: block;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 900;
+  font-size: 54px;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.zine-stat span {
+  display: block;
+  margin-top: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+/* ---------- секции ---------- */
+
+.zine-section { margin-top: 46px; }
+
+.zine-h2 {
+  margin: 0 0 22px;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: -1px;
+  color: #1c1616;
+}
+
+.zine-h2 small {
+  font-family: "Caveat", cursive;
+  font-weight: 500;
+  font-size: 21px;
+  letter-spacing: 0;
+  color: #886cff;
+}
+
+/* ---------- стикеры-шаги ---------- */
+
+.zine-notes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.zine-note {
+  position: relative;
+  border: 2px solid #1c1616;
+  padding: 24px 18px 18px;
+  box-shadow: 5px 6px 0 rgba(28, 22, 22, 0.85);
+}
+
+.zn-1 { background: #fff3c4; transform: rotate(-1.6deg); }
+.zn-2 { background: #dcf3e0; transform: rotate(1.3deg); }
+.zn-3 { background: #ffdfec; transform: rotate(-1deg); }
+.zn-4 { background: #dde8ff; transform: rotate(1.7deg); }
+
+.zine-tape {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 86px;
+  height: 24px;
+  background: rgba(255, 209, 102, 0.8);
+  border-left: 1px dashed rgba(28, 22, 22, 0.25);
+  border-right: 1px dashed rgba(28, 22, 22, 0.25);
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+.zn-2 .zine-tape { transform: translateX(-50%) rotate(2.5deg); background: rgba(134, 201, 255, 0.75); }
+.zn-4 .zine-tape { background: rgba(232, 83, 141, 0.35); }
+
+.zine-note em {
+  font-family: "Caveat", cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #ea4c3c;
+}
+
+.zine-note strong {
+  display: block;
+  margin: 4px 0 8px;
+  font-family: "Russo One", sans-serif;
+  font-size: 16px;
+  color: #1c1616;
+}
+
+.zine-note p { margin: 0; font-size: 12.5px; line-height: 1.6; color: #3a3128; }
+
+/* ---------- разделы-чипы ---------- */
+
+.zine-chips { display: flex; flex-wrap: wrap; gap: 18px; }
+
+.zine-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  border: 2.5px solid #1c1616;
+  background: var(--zc);
+  color: #1c1616;
+  box-shadow: 5px 5px 0 #1c1616;
+  padding: 14px 24px;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.zine-chip b { font-family: "Unbounded", sans-serif; font-weight: 700; font-size: 18px; }
+.zine-chip span { font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: 1px; }
+.zine-chip:hover { transform: translate(2px, 2px) rotate(0deg) !important; box-shadow: 2px 2px 0 #1c1616; }
+
+/* ---------- лоскутная сетка опытов ---------- */
+
+.zine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  padding: 6px 4px 14px;
+}
+
+.zine-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 200px;
+  padding: 16px;
+  text-align: left;
+  background: var(--zc);
+  color: var(--zi);
+  border: 1.5px dotted currentColor;
+  cursor: pointer;
+  transform: rotate(var(--tilt));
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.zine-card:hover {
+  transform: rotate(0deg) scale(1.04);
+  border-style: solid;
+  border-color: #1c1616;
+  box-shadow: 7px 7px 0 rgba(28, 22, 22, 0.9);
+  z-index: 3;
+}
+
+.zine-card-code {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.zine-card-symbol { font-family: "DM Mono", monospace; font-size: 30px; line-height: 1; }
+
+.zine-card-title {
+  font-family: "Russo One", sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.zine-card-desc { flex: 1; font-size: 11px; line-height: 1.55; opacity: 0.82; }
+
+.zine-card-go {
+  align-self: flex-end;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: 19px;
+}
+
+/* ---------- подвал главной ---------- */
+
+.zine-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 46px;
+  padding-top: 18px;
+  border-top: 2px dashed #1c1616;
+}
+
+.zine-footer-hand {
+  font-family: "Marck Script", cursive;
+  font-size: 24px;
+  color: #ea4c3c;
+}
+
+.zine-footer span:last-child {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 1.6px;
+  color: #1c1616;
+}
+
+@media (max-width: 1100px) {
+  .zine-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .zine-notes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .zine-hero-side { flex-basis: 200px; }
+}
+
+@media (max-width: 900px) {
+  .zine-home::before { left: 0; }
+  .zine-hero-main { flex-direction: column; padding: 26px 24px 6px; }
+  .zine-hero-side { min-height: 240px; flex-basis: auto; }
+  .zine-sticker-main { right: 10px; }
+  .zine-hero-bottom { padding: 12px 24px 16px; flex-wrap: wrap; }
+  .zine-stats { grid-template-columns: 1fr; }
+  .zine-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .zine-grid { grid-template-columns: 1fr; }
+  .zine-notes { grid-template-columns: 1fr; }
+  .zine-title { font-size: 40px; letter-spacing: -1.5px; }
+  .zine-hero-top { flex-direction: column; }
+  .zine-stat b { font-size: 42px; }
+}
+
+/* =========================================================
+   ЭКСПЕРИМЕНТЫ — 20 кардинально разных визуальных миров.
+   Общая система: каждая тема задаёт переменные --t-*,
+   блок ниже превращает их в оформление всех элементов.
+   ========================================================= */
+
+.experiment-page {
+  --t-bg: #0b1015;
+  --t-ink: #edf3f7;
+  --t-muted: #8a97a1;
+  --t-panel: #0d1319;
+  --t-line: #24303a;
+  --t-accent: #39d5e7;
+  --t-accent2: #39d5e7;
+  --t-onaccent: #04151a;
+  --t-font: "Inter", sans-serif;
+  --t-headfont: "Inter", sans-serif;
+  --t-mono: "DM Mono", monospace;
+  --t-headw: 700;
+  --t-headls: -2px;
+  --t-headtt: none;
+  --t-headsize: clamp(38px, 5vw, 60px);
+  --t-radius: 0;
+  --t-bw: 1px;
+  --t-bstyle: solid;
+  --t-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+  --t-inputbg: #0a0f14;
+  --t-metricbg: rgba(255, 255, 255, 0.02);
+  --t-btnbg: #121920;
+  font-family: var(--t-font);
+  color: var(--t-ink);
+}
+
+.experiment-page::before {
+  position: absolute;
+  inset: -28px -100vw 0 -100vw;
+  opacity: 1;
+}
+
+.experiment-page .eyebrow { color: var(--t-accent); font-family: var(--t-mono); }
+
+.experiment-page h1 {
+  font-family: var(--t-headfont);
+  font-weight: var(--t-headw);
+  letter-spacing: var(--t-headls);
+  text-transform: var(--t-headtt);
+  font-size: var(--t-headsize);
+  color: var(--t-ink);
+}
+
+.experiment-page .page-subtitle { color: var(--t-muted); }
+
+.experiment-page .panel {
+  background: var(--t-panel);
+  border: var(--t-bw) var(--t-bstyle) var(--t-line);
+  border-radius: var(--t-radius);
+  box-shadow: var(--t-shadow);
+}
+
+.experiment-page .panel-header { border-bottom: var(--t-bw) var(--t-bstyle) var(--t-line); }
+.experiment-page .panel-title { color: var(--t-muted); font-family: var(--t-mono); }
+.experiment-page .badge { border: var(--t-bw) var(--t-bstyle) var(--t-line); color: var(--t-muted); font-family: var(--t-mono); }
+
+.experiment-page .btn {
+  background: var(--t-btnbg);
+  color: var(--t-ink);
+  border: var(--t-bw) var(--t-bstyle) var(--t-line);
+  border-radius: var(--t-radius);
+  font-family: var(--t-mono);
+}
+
+.experiment-page .btn:hover { background: var(--t-btnbg); filter: brightness(1.15); }
+
+.experiment-page .btn-primary {
+  background: var(--t-accent);
+  border-color: var(--t-accent);
+  color: var(--t-onaccent);
+}
+
+.experiment-page .btn-primary:hover { background: var(--t-accent2); border-color: var(--t-accent2); filter: none; }
+
+.experiment-page .metric {
+  background: var(--t-metricbg);
+  border: var(--t-bw) var(--t-bstyle) var(--t-line);
+  border-radius: var(--t-radius);
+}
+
+.experiment-page .metric-label { color: var(--t-muted); font-family: var(--t-mono); }
+.experiment-page .metric-value { color: var(--t-ink); font-family: var(--t-mono); }
+
+.experiment-page .formula {
+  background: var(--t-formbg, transparent);
+  border-left: 3px solid var(--t-accent);
+  color: var(--t-ink);
+  font-family: var(--t-mono);
+}
+
+.experiment-page .explanation,
+.experiment-page .small-note { color: var(--t-muted); }
+
+.experiment-page input[type="number"],
+.experiment-page select,
+.experiment-page .control-value {
+  background: var(--t-inputbg);
+  color: var(--t-ink);
+  border: var(--t-bw) var(--t-bstyle) var(--t-line);
+  border-radius: var(--t-radius);
+}
+
+.experiment-page input[type="range"] { accent-color: var(--t-accent); }
+.experiment-page .control-block label { color: var(--t-muted); font-family: var(--t-mono); }
+.experiment-page .divider { background: var(--t-line); }
+.experiment-page .footer-line { color: var(--t-muted); border-top-color: var(--t-line); }
+
+.experiment-page .canvas-wrap {
+  border: var(--t-bw) var(--t-bstyle) var(--t-line);
+  border-radius: var(--t-radius);
+  overflow: hidden;
+}
+
+.experiment-page .canvas-hint { color: var(--t-muted); }
+.experiment-page .graph-caption { color: var(--t-muted); font-family: var(--t-mono); }
+
+.experiment-page .mode-tabs { border: var(--t-bw) var(--t-bstyle) var(--t-line); border-radius: var(--t-radius); overflow: hidden; }
+.experiment-page .mode-tab { color: var(--t-muted); border-right-color: var(--t-line); font-family: var(--t-mono); }
+.experiment-page .mode-tab.active { background: var(--t-accent); color: var(--t-onaccent); }
+
+.experiment-page .challenge {
+  border: var(--t-bw) var(--t-bstyle) var(--t-line);
+  background: var(--t-metricbg);
+  color: var(--t-ink);
+}
+
+.experiment-page .diag-label, .experiment-page .diag-value { color: var(--t-muted); font-family: var(--t-mono); }
+.experiment-page .diag-value { color: var(--t-ink); }
+.experiment-page .diag-track { background: var(--t-inputbg); border: var(--t-bw) var(--t-bstyle) var(--t-line); }
+.experiment-page .diag-fill { background: var(--t-accent); }
+
+.experiment-page .live-readout {
+  border: var(--t-bw) var(--t-bstyle) var(--t-line);
+  background: var(--t-metricbg);
+  color: var(--t-muted);
+  font-family: var(--t-mono);
+}
+
+.experiment-page .live-readout span:last-child { color: var(--t-accent); }
+
+/* досье и команда — подчиняются теме */
+
+.experiment-page .experiment-dossier {
+  transform: none;
+  clip-path: none;
+  border: var(--t-bw) var(--t-bstyle) var(--t-line);
+  border-radius: var(--t-radius);
+  background: var(--t-panel);
+  box-shadow: var(--t-shadow);
+}
+
+.experiment-page .dossier-visual {
+  background: var(--t-dossiervisual, var(--t-panel));
+  border-right: var(--t-bw) var(--t-bstyle) var(--t-line);
+  border-radius: 0;
+}
+
+.experiment-page .dossier-copy { border-right: var(--t-bw) var(--t-bstyle) var(--t-line); }
+.experiment-page .dossier-observation { border-top-color: var(--t-line); }
+.experiment-page .dossier-code { color: var(--t-accent); }
+.experiment-page .dossier-big-symbol { color: var(--t-accent); text-shadow: none; font-style: normal; }
+.experiment-page .dossier-overline { color: var(--t-muted); }
+.experiment-page .dossier-overline span:last-child { color: var(--t-accent); }
+.experiment-page .dossier-title-row h2 { color: var(--t-ink); font-family: var(--t-headfont); }
+.experiment-page .dossier-title-row p { color: var(--t-muted); }
+.experiment-page .dossier-observation small { color: var(--t-accent); font-family: var(--t-mono); }
+.experiment-page .dossier-observation p { color: var(--t-muted); }
+.experiment-page .dossier-visual > span { color: var(--t-muted); }
+.experiment-page .creator-label { color: var(--t-muted); font-family: var(--t-mono); }
+.experiment-page .creator-person strong { color: var(--t-ink); }
+.experiment-page .creator-person small { color: var(--t-muted); }
+.experiment-page .creator-disclaimer { color: var(--t-muted); }
+.experiment-page .portrait { border: var(--t-bw) var(--t-bstyle) var(--t-line); border-radius: var(--t-radius); }
+
+/* =========================================================
+   01 · PROJECTILE — ретро-аркада 8-бит
+   ========================================================= */
+
+.experiment-id-projectile {
+  --t-ink: #ffe14d;
+  --t-muted: #b9a8e8;
+  --t-panel: #241640;
+  --t-line: #ff5da2;
+  --t-accent: #ffe14d;
+  --t-accent2: #ff5da2;
+  --t-onaccent: #241640;
+  --t-headfont: "Press Start 2P", monospace;
+  --t-headw: 400;
+  --t-headls: 0;
+  --t-headtt: uppercase;
+  --t-headsize: clamp(20px, 3vw, 34px);
+  --t-bw: 3px;
+  --t-shadow: 8px 8px 0 #120a24;
+  --t-inputbg: #120a24;
+  --t-metricbg: #1a0f30;
+  --t-btnbg: #38256b;
+}
+
+.experiment-id-projectile::before {
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0 2px, transparent 2px 5px),
+    radial-gradient(circle at 50% 20%, #3b2273, #150a2c 70%);
+}
+
+.experiment-id-projectile .lab-main > .panel:first-child { border-radius: 0; box-shadow: 8px 8px 0 #120a24, 0 0 0 3px #120a24; }
+
+.experiment-id-projectile .panel-title,
+.experiment-id-projectile .badge,
+.experiment-id-projectile .btn,
+.experiment-id-projectile .metric-label,
+.experiment-id-projectile .metric-value {
+  font-family: "Press Start 2P", monospace;
+}
+
+.experiment-id-projectile .panel-title { font-size: 9px; letter-spacing: 0; }
+.experiment-id-projectile .btn { font-size: 8px; letter-spacing: 0; box-shadow: 4px 4px 0 #120a24; }
+.experiment-id-projectile .btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 #120a24; }
+.experiment-id-projectile .metric-value { font-size: 10px; }
+.experiment-id-projectile .metric-label { font-size: 7px; }
+.experiment-id-projectile .eyebrow { font-family: "Press Start 2P", monospace; font-size: 8px; letter-spacing: 1px; color: #ff5da2; }
+
+.experiment-id-projectile .experiment-dossier {
+  grid-template-columns: 135px minmax(0, 1fr) 285px;
+  border-color: #ffe14d;
+  box-shadow: 8px 8px 0 #120a24;
+}
+
+.experiment-id-projectile .dossier-visual {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 93, 162, 0.08) 0 8px, transparent 8px 16px),
+    #1a0f30;
+}
+
+.experiment-id-projectile .dossier-big-symbol { font-family: "Press Start 2P", monospace; font-size: 34px; }
+.experiment-id-projectile .page-subtitle { color: #b9a8e8; }
+
+/* =========================================================
+   02 · PENDULUM — классическая академия, журнал XIX века
+   ========================================================= */
+
+.experiment-id-pendulum {
+  --t-ink: #23201a;
+  --t-muted: #6d6152;
+  --t-panel: #fffdf6;
+  --t-line: #b08d3e;
+  --t-accent: #8a6a1f;
+  --t-accent2: #6d5316;
+  --t-onaccent: #fffdf6;
+  --t-font: "EB Garamond", serif;
+  --t-headfont: "EB Garamond", serif;
+  --t-headw: 800;
+  --t-headls: -1px;
+  --t-headsize: clamp(36px, 4.6vw, 56px);
+  --t-mono: "EB Garamond", serif;
+  --t-bw: 1px;
+  --t-inputbg: #fbf7ec;
+  --t-metricbg: #f8f2e2;
+  --t-btnbg: #f3ecd9;
+  --t-shadow: 0 1px 0 #b08d3e, 0 14px 30px rgba(90, 70, 20, 0.12);
+}
+
+.experiment-id-pendulum::before {
+  background:
+    radial-gradient(circle at 80% 10%, rgba(176, 141, 62, 0.14), transparent 30%),
+    repeating-linear-gradient(0deg, rgba(120, 95, 40, 0.04) 0 1px, transparent 1px 26px),
+    #f6f1e7;
+}
+
+.experiment-id-pendulum .experiment-dossier {
+  grid-template-columns: 130px minmax(0, 1fr) 290px;
+  border: 1px solid #b08d3e;
+  border-radius: 0;
+  outline: 4px double #b08d3e;
+  outline-offset: -9px;
+}
+
+.experiment-id-pendulum .lab-main > .panel:first-child { border-radius: 0; }
+
+.experiment-id-pendulum .dossier-visual {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 42px, rgba(138, 106, 31, 0.25) 43px 44px, transparent 45px),
+    radial-gradient(circle at 50% 50%, transparent 0 66px, rgba(138, 106, 31, 0.15) 67px 68px, transparent 69px),
+    #f3ecd9;
+}
+
+.experiment-id-pendulum h1 { font-style: normal; }
+.experiment-id-pendulum h1::after { content: ""; display: block; width: 120px; height: 3px; margin-top: 14px; background: #b08d3e; }
+.experiment-id-pendulum .eyebrow { font-family: "EB Garamond", serif; font-size: 13px; letter-spacing: 3px; font-style: italic; text-transform: none; }
+.experiment-id-pendulum .panel-title { font-style: italic; text-transform: none; letter-spacing: 1px; font-size: 14px; color: #8a6a1f; }
+.experiment-id-pendulum .btn { font-family: "EB Garamond", serif; font-size: 15px; text-transform: none; letter-spacing: 0.5px; }
+.experiment-id-pendulum .metric-label { font-style: italic; text-transform: none; letter-spacing: 0.5px; font-size: 12px; }
+.experiment-id-pendulum .metric-value { font-size: 19px; font-weight: 600; }
+.experiment-id-pendulum .formula { border-left: 0; border-top: 1px solid #b08d3e; border-bottom: 1px solid #b08d3e; background: transparent; font-family: "EB Garamond", serif; font-size: 17px; font-style: italic; text-align: center; }
+.experiment-id-pendulum .badge { font-family: "EB Garamond", serif; font-style: italic; letter-spacing: 1px; font-size: 12px; }
+.experiment-id-pendulum .footer-line { font-family: "EB Garamond", serif; font-style: italic; letter-spacing: 2px; font-size: 12px; }
+.experiment-id-pendulum .page-subtitle { font-size: 16px; }
+
+/* =========================================================
+   03 · FREEFALL — брутализм: чёрное, белое, красное
+   ========================================================= */
+
+.experiment-id-freefall {
+  --t-ink: #111111;
+  --t-muted: #555555;
+  --t-panel: #ffffff;
+  --t-line: #111111;
+  --t-accent: #e02020;
+  --t-accent2: #b30000;
+  --t-onaccent: #ffffff;
+  --t-headfont: "Oswald", sans-serif;
+  --t-headw: 700;
+  --t-headtt: uppercase;
+  --t-headls: 0;
+  --t-headsize: clamp(44px, 5.6vw, 72px);
+  --t-bw: 3px;
+  --t-shadow: 10px 10px 0 #111111;
+  --t-inputbg: #ffffff;
+  --t-metricbg: #ffffff;
+  --t-btnbg: #ffffff;
+}
+
+.experiment-id-freefall::before { background: #ffffff; }
+
+.experiment-id-freefall .lab-layout { grid-template-columns: 340px minmax(0, 1fr); }
+.experiment-id-freefall .lab-side { order: -1; }
+
+.experiment-id-freefall .experiment-dossier {
+  grid-template-columns: 110px minmax(0, 1fr) 270px;
+  border: 3px solid #111;
+  border-left: 14px solid #e02020;
+  box-shadow: 10px 10px 0 #111;
+}
+
+.experiment-id-freefall .lab-main > .panel:first-child { border-left: 3px solid #111; border-radius: 0; }
+
+.experiment-id-freefall .dossier-visual {
+  background:
+    repeating-linear-gradient(90deg, rgba(17, 17, 17, 0.08) 0 3px, transparent 3px 24px),
+    #fff;
+}
+
+.experiment-id-freefall h1 { background: #111; color: #fff; display: inline-block; padding: 4px 18px 8px; }
+.experiment-id-freefall .eyebrow { color: #e02020; font-size: 12px; letter-spacing: 4px; }
+.experiment-id-freefall .eyebrow::before { content: "↓ "; }
+.experiment-id-freefall .panel-title { color: #111; font-size: 12px; letter-spacing: 3px; }
+.experiment-id-freefall .btn { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; box-shadow: 5px 5px 0 #111; }
+.experiment-id-freefall .btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #111; }
+.experiment-id-freefall .metric { box-shadow: 4px 4px 0 #111; }
+.experiment-id-freefall .metric-value { font-size: 20px; font-weight: 700; color: #111; }
+.experiment-id-freefall .metric-label { color: #e02020; font-weight: 700; font-size: 10px; }
+.experiment-id-freefall .formula { background: #111; color: #fff; border-left: 6px solid #e02020; font-size: 14px; }
+.experiment-id-freefall .dossier-big-symbol { font-family: "Oswald", sans-serif; font-size: 60px; }
+.experiment-id-freefall .badge { background: #e02020; color: #fff; border-color: #111; box-shadow: 3px 3px 0 #111; }
+
+/* =========================================================
+   04 · HOOKE — чертёж на синей кальке
+   ========================================================= */
+
+.experiment-id-hooke {
+  --t-ink: #eaf4ff;
+  --t-muted: #9dc0e8;
+  --t-panel: rgba(13, 52, 104, 0.55);
+  --t-line: rgba(158, 202, 255, 0.65);
+  --t-accent: #ffd166;
+  --t-accent2: #ffb703;
+  --t-onaccent: #12325f;
+  --t-bstyle: dashed;
+  --t-headfont: "Oswald", sans-serif;
+  --t-headw: 400;
+  --t-headtt: uppercase;
+  --t-headls: 2px;
+  --t-shadow: none;
+  --t-inputbg: rgba(6, 30, 66, 0.8);
+  --t-metricbg: rgba(6, 30, 66, 0.5);
+  --t-btnbg: rgba(6, 30, 66, 0.7);
+  --t-formbg: rgba(255, 209, 102, 0.06);
+}
+
+.experiment-id-hooke::before {
+  background:
+    linear-gradient(rgba(158, 202, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(158, 202, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(158, 202, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(158, 202, 255, 0.035) 1px, transparent 1px),
+    #123a6e;
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+}
+
+.experiment-id-hooke .experiment-dossier {
+  background:
+    linear-gradient(rgba(158, 202, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(158, 202, 255, 0.05) 1px, transparent 1px),
+    rgba(9, 38, 80, 0.6);
+  background-size: 18px 18px;
+  border-style: dashed;
+}
+
+.experiment-id-hooke .dossier-visual {
+  background:
+    radial-gradient(circle, rgba(255, 209, 102, 0.25) 0 2px, transparent 3px),
+    repeating-linear-gradient(0deg, rgba(158, 202, 255, 0.08) 0 1px, transparent 1px 18px),
+    rgba(6, 30, 66, 0.6);
+}
+
+.experiment-id-hooke .panel-title::before { content: "⌗ "; color: var(--t-accent); }
+.experiment-id-hooke h1 { text-shadow: 0 0 22px rgba(158, 202, 255, 0.35); }
+.experiment-id-hooke .eyebrow::after { content: " · ЧЕРТЁЖ № M-04"; opacity: 0.6; }
+.experiment-id-hooke .formula { border-left-style: dashed; }
+.experiment-id-hooke .metric { border-style: dashed; }
+.experiment-id-hooke .canvas-wrap { border-style: dashed; }
+
+/* =========================================================
+   05 · FRICTION — столярная мастерская, крафт-бумага
+   ========================================================= */
+
+.experiment-id-friction {
+  --t-ink: #4a3421;
+  --t-muted: #8a6f52;
+  --t-panel: #efdfb8;
+  --t-line: #4a3421;
+  --t-accent: #b3402a;
+  --t-accent2: #93331f;
+  --t-onaccent: #f6ecd4;
+  --t-headfont: "Russo One", sans-serif;
+  --t-headw: 400;
+  --t-headtt: uppercase;
+  --t-headls: 0;
+  --t-headsize: clamp(34px, 4.6vw, 58px);
+  --t-mono: "Caveat", cursive;
+  --t-bw: 2px;
+  --t-radius: 6px 22px 8px 18px;
+  --t-shadow: 6px 7px 0 rgba(74, 52, 33, 0.35);
+  --t-inputbg: #f6ecd4;
+  --t-metricbg: #f6ecd4;
+  --t-btnbg: #e4cf9e;
+}
+
+.experiment-id-friction::before {
+  background:
+    repeating-linear-gradient(92deg, rgba(74, 52, 33, 0.05) 0 2px, transparent 2px 34px),
+    repeating-linear-gradient(1deg, rgba(74, 52, 33, 0.035) 0 1px, transparent 1px 9px),
+    #d9b98c;
+}
+
+.experiment-id-friction .experiment-dossier {
+  border-top: 2px solid #4a3421;
+  border-radius: 10px 26px 12px 22px;
+  background:
+    repeating-linear-gradient(45deg, rgba(74, 52, 33, 0.04) 0 10px, transparent 10px 20px),
+    #efdfb8;
+  transform: rotate(-0.4deg);
+}
+
+.experiment-id-friction .lab-main > .panel:first-child { border-radius: 6px 22px 8px 18px; }
+.experiment-id-friction .lab-side .panel:nth-child(2) { border-left: 2px solid #4a3421; }
+
+.experiment-id-friction .dossier-visual {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(179, 64, 42, 0.14), transparent 40%),
+    #e4cf9e;
+}
+
+.experiment-id-friction .panel-title { font-family: "Caveat", cursive; font-size: 21px; text-transform: none; letter-spacing: 0; color: #4a3421; }
+.experiment-id-friction .control-block label { font-family: "Caveat", cursive; font-size: 18px; text-transform: none; }
+.experiment-id-friction .btn { font-family: "Caveat", cursive; font-size: 19px; text-transform: none; }
+.experiment-id-friction .eyebrow { font-family: "Caveat", cursive; font-size: 19px; text-transform: none; letter-spacing: 0.5px; color: #b3402a; }
+.experiment-id-friction .metric-label { font-family: "Caveat", cursive; font-size: 16px; text-transform: none; letter-spacing: 0; }
+.experiment-id-friction .badge { font-family: "Caveat", cursive; font-size: 15px; letter-spacing: 0.5px; border-radius: 50%; padding: 4px 12px; border-style: dashed; }
+.experiment-id-friction .formula { border-radius: 4px; transform: rotate(-0.3deg); }
+.experiment-id-friction .footer-line { font-family: "Caveat", cursive; font-size: 17px; text-transform: none; letter-spacing: 0.5px; }
+
+/* =========================================================
+   06 · BUOYANCY — подводная капсула, стекло и пузыри
+   ========================================================= */
+
+.experiment-id-buoyancy {
+  --t-ink: #eafcff;
+  --t-muted: #9adbe8;
+  --t-panel: rgba(255, 255, 255, 0.07);
+  --t-line: rgba(154, 219, 232, 0.35);
+  --t-accent: #4de3ff;
+  --t-accent2: #7cf0d4;
+  --t-onaccent: #01303f;
+  --t-radius: 26px;
+  --t-shadow: 0 18px 50px rgba(0, 10, 20, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --t-inputbg: rgba(1, 48, 63, 0.55);
+  --t-metricbg: rgba(255, 255, 255, 0.06);
+  --t-btnbg: rgba(255, 255, 255, 0.1);
+}
+
+.experiment-id-buoyancy::before {
+  background:
+    radial-gradient(circle at 12% 78%, rgba(77, 227, 255, 0.12), transparent 26%),
+    radial-gradient(circle at 84% 12%, rgba(124, 240, 212, 0.14), transparent 30%),
+    radial-gradient(circle at 70% 80%, rgba(77, 227, 255, 0.07), transparent 22%),
+    linear-gradient(180deg, #013a52, #021c2b 75%);
+}
+
+.experiment-id-buoyancy .panel { backdrop-filter: blur(10px); }
+
+.experiment-id-buoyancy .experiment-dossier {
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(124, 240, 212, 0.16) 0 8px, transparent 9px),
+    radial-gradient(circle at 80% 34%, rgba(124, 240, 212, 0.12) 0 5px, transparent 6px),
+    radial-gradient(circle at 93% 44%, rgba(124, 240, 212, 0.1) 0 12px, transparent 13px),
+    rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+.experiment-id-buoyancy .dossier-visual {
+  border-radius: 30px 0 0 30px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(77, 227, 255, 0.2) 0 10px, transparent 11px),
+    radial-gradient(circle at 62% 62%, rgba(77, 227, 255, 0.14) 0 6px, transparent 7px),
+    radial-gradient(circle at 45% 78%, rgba(255, 255, 255, 0.14) 0 4px, transparent 5px),
+    rgba(1, 48, 63, 0.5);
+}
+
+.experiment-id-buoyancy .canvas-wrap { border-radius: 22px; }
+.experiment-id-buoyancy h1 { text-shadow: 0 0 34px rgba(77, 227, 255, 0.45); }
+.experiment-id-buoyancy .badge { border-radius: 999px; }
+.experiment-id-buoyancy .btn { border-radius: 999px; }
+.experiment-id-buoyancy .btn-primary { box-shadow: 0 0 26px rgba(77, 227, 255, 0.35); }
+.experiment-id-buoyancy .metric { border-radius: 18px; }
+.experiment-id-buoyancy .formula { border-radius: 14px; }
+
+/* =========================================================
+   07 · UNIFORM — швейцарский минимализм, одна красная точка
+   ========================================================= */
+
+.experiment-id-uniform {
+  --t-ink: #111111;
+  --t-muted: #8b8b8b;
+  --t-panel: #ffffff;
+  --t-line: #e4e4e4;
+  --t-accent: #e33012;
+  --t-accent2: #b3240d;
+  --t-onaccent: #ffffff;
+  --t-headfont: "Inter", sans-serif;
+  --t-headw: 700;
+  --t-headls: -3.5px;
+  --t-headsize: clamp(46px, 6vw, 78px);
+  --t-bw: 1px;
+  --t-shadow: none;
+  --t-inputbg: #fafafa;
+  --t-metricbg: #ffffff;
+  --t-btnbg: #ffffff;
+}
+
+.experiment-id-uniform::before { background: #ffffff; }
+
+.experiment-id-uniform .lab-layout { display: block; }
+.experiment-id-uniform .lab-main { display: grid; gap: 26px; }
+.experiment-id-uniform .lab-side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; margin-top: 26px; position: static; }
+
+.experiment-id-uniform .experiment-dossier {
+  border: 0;
+  border-top: 6px solid #111;
+  background: #fff;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.experiment-id-uniform .lab-main > .panel:first-child { background: #fff; border-radius: 0; }
+
+.experiment-id-uniform .dossier-visual {
+  background:
+    radial-gradient(circle at 50% 50%, #e33012 0 16px, transparent 17px),
+    #fff;
+}
+
+.experiment-id-uniform .dossier-big-symbol { color: #e33012; }
+.experiment-id-uniform h1::before { content: ""; display: inline-block; width: 0.45em; height: 0.45em; margin-right: 18px; background: #e33012; border-radius: 50%; vertical-align: baseline; }
+.experiment-id-uniform .eyebrow { color: #111; letter-spacing: 5px; }
+.experiment-id-uniform .panel { border: 0; border-top: 1px solid #111; }
+.experiment-id-uniform .panel-header { border-bottom: 0; padding-left: 0; }
+.experiment-id-uniform .panel-body { padding-left: 0; padding-right: 0; }
+.experiment-id-uniform .panel-title { color: #111; font-size: 11px; letter-spacing: 4px; }
+.experiment-id-uniform .metric { border: 0; border-bottom: 1px solid #e4e4e4; border-radius: 0; padding-left: 0; }
+.experiment-id-uniform .metric-value { font-size: 26px; font-weight: 300; letter-spacing: -1px; color: #111; }
+.experiment-id-uniform .btn { border: 1px solid #111; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
+.experiment-id-uniform .btn-primary { background: #111; color: #fff; border-color: #111; }
+.experiment-id-uniform .btn-primary:hover { background: #e33012; border-color: #e33012; }
+.experiment-id-uniform .canvas-wrap { border: 0; border-radius: 0; }
+.experiment-id-uniform .formula { border-left: 0; border-top: 1px solid #111; background: transparent; padding-left: 0; }
+
+/* =========================================================
+   08 · NEWTON — школьная доска и мел
+   ========================================================= */
+
+.experiment-id-newton {
+  --t-ink: #f2f2e9;
+  --t-muted: #b9c4b2;
+  --t-panel: #33463e;
+  --t-line: rgba(242, 242, 233, 0.4);
+  --t-accent: #ffd23e;
+  --t-accent2: #ffb703;
+  --t-onaccent: #2b3a34;
+  --t-headfont: "Neucha", cursive;
+  --t-headw: 400;
+  --t-headls: 1px;
+  --t-headsize: clamp(40px, 5.4vw, 66px);
+  --t-mono: "Neucha", cursive;
+  --t-bw: 2px;
+  --t-bstyle: dashed;
+  --t-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --t-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  --t-inputbg: #26352f;
+  --t-metricbg: #2b3d36;
+  --t-btnbg: #26352f;
+}
+
+.experiment-id-newton::before {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.045), transparent 40%),
+    radial-gradient(ellipse at 75% 75%, rgba(255, 255, 255, 0.035), transparent 35%),
+    #2b3a34;
+}
+
+.experiment-id-newton .experiment-dossier {
+  border: 2px dashed rgba(242, 242, 233, 0.4);
+  border-right: 2px dashed rgba(242, 242, 233, 0.4);
+  border-radius: 18px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(242, 242, 233, 0.05) 30px 31px),
+    #33463e;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.28);
+}
+
+.experiment-id-newton .dossier-visual { background: #2b3d36; border-radius: 14px 0 0 14px; }
+.experiment-id-newton .dossier-big-symbol { font-family: "Neucha", cursive; font-size: 64px; transform: rotate(-6deg); }
+
+.experiment-id-newton h1 { transform: rotate(-0.6deg); text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25); }
+.experiment-id-newton .eyebrow { font-family: "Neucha", cursive; font-size: 17px; text-transform: none; letter-spacing: 1px; }
+.experiment-id-newton .panel-title { font-family: "Neucha", cursive; font-size: 20px; text-transform: none; letter-spacing: 0.5px; color: #f2f2e9; }
+.experiment-id-newton .control-block label { font-family: "Neucha", cursive; font-size: 17px; text-transform: none; }
+.experiment-id-newton .btn { font-family: "Neucha", cursive; font-size: 18px; text-transform: none; border-radius: 125px 10px 125px 10px / 10px 125px 10px 125px; }
+.experiment-id-newton .metric-label { font-family: "Neucha", cursive; font-size: 14px; text-transform: none; letter-spacing: 0.5px; }
+.experiment-id-newton .metric-value { font-family: "Neucha", cursive; font-size: 20px; color: #ffd23e; }
+.experiment-id-newton .formula { background: rgba(255, 210, 62, 0.08); border: 2px dashed rgba(255, 210, 62, 0.5); border-radius: 10px; color: #ffd23e; font-family: "Neucha", cursive; font-size: 18px; }
+.experiment-id-newton .footer-line { font-family: "Neucha", cursive; font-size: 15px; text-transform: none; letter-spacing: 1px; }
+.experiment-id-newton .badge { border-style: dashed; border-radius: 50%; font-family: "Neucha", cursive; font-size: 13px; padding: 6px 12px; }
+
+/* =========================================================
+   09 · COLLISION — комикс поп-арт: БАМ! БУМ!
+   ========================================================= */
+
+.experiment-id-collision {
+  --t-ink: #111111;
+  --t-muted: #4a4a4a;
+  --t-panel: #ffffff;
+  --t-line: #111111;
+  --t-accent: #ff2e63;
+  --t-accent2: #d11145;
+  --t-onaccent: #ffffff;
+  --t-headfont: "Russo One", sans-serif;
+  --t-headw: 400;
+  --t-headtt: uppercase;
+  --t-headls: 1px;
+  --t-headsize: clamp(40px, 5.4vw, 70px);
+  --t-bw: 4px;
+  --t-shadow: 9px 9px 0 #111111;
+  --t-inputbg: #ffffff;
+  --t-metricbg: #fff6bd;
+  --t-btnbg: #ffffff;
+}
+
+.experiment-id-collision::before {
+  background:
+    radial-gradient(circle, rgba(17, 17, 17, 0.16) 1.6px, transparent 2.4px),
+    #ffe94d;
+  background-size: 18px 18px;
+}
+
+.experiment-id-collision h1 {
+  color: #ff2e63;
+  -webkit-text-stroke: 2px #111;
+  text-shadow: 5px 5px 0 #111;
+  transform: rotate(-1deg);
+}
+
+.experiment-id-collision .eyebrow { background: #111; color: #ffe94d; display: inline-block; padding: 4px 12px; font-size: 11px; letter-spacing: 3px; transform: rotate(-1deg); }
+
+.experiment-id-collision .experiment-dossier {
+  border: 4px solid #111;
+  box-shadow: 12px 12px 0 #111;
+  transform: rotate(-0.7deg);
+  background: #fff;
+}
+
+.experiment-id-collision .dossier-visual {
+  background:
+    radial-gradient(circle at 50% 50%, #ff2e63 0 10px, transparent 11px),
+    radial-gradient(circle, rgba(17, 17, 17, 0.14) 1.4px, transparent 2.2px),
+    #6c85ec;
+  background-size: auto, 14px 14px, auto;
+}
+
+.experiment-id-collision .lab-main > .panel:first-child {
+  background: #fff;
+  border-radius: 0;
+  transform: rotate(0.4deg);
+}
+
+.experiment-id-collision .lab-main > .panel:nth-child(2) { transform: rotate(-0.5deg); }
+.experiment-id-collision .lab-side .panel:nth-child(2) { transform: rotate(0.6deg); }
+
+.experiment-id-collision .panel-title { font-family: "Russo One", sans-serif; font-size: 14px; letter-spacing: 1px; color: #111; text-transform: uppercase; }
+.experiment-id-collision .btn { font-family: "Russo One", sans-serif; font-size: 12px; text-transform: uppercase; box-shadow: 4px 4px 0 #111; }
+.experiment-id-collision .btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #111; }
+.experiment-id-collision .btn-primary { background: #ff2e63; color: #fff; }
+.experiment-id-collision .metric-value { font-family: "Russo One", sans-serif; font-size: 17px; color: #111; }
+.experiment-id-collision .metric-label { color: #ff2e63; font-weight: 700; }
+.experiment-id-collision .badge { background: #ffe94d; color: #111; border: 3px solid #111; font-family: "Russo One", sans-serif; font-size: 10px; padding: 5px 10px; transform: rotate(2deg); }
+.experiment-id-collision .formula { border: 3px solid #111; border-left: 8px solid #ff2e63; background: #fff6bd; color: #111; font-size: 14px; }
+.experiment-id-collision .canvas-wrap { border-width: 4px; }
+
+/* =========================================================
+   10 · WORKPOWER — заводской цех, металл и аварийные ленты
+   ========================================================= */
+
+.experiment-id-workpower {
+  --t-ink: #e8e6e1;
+  --t-muted: #9a978e;
+  --t-panel: linear-gradient(180deg, #2a2d31, #1e2124);
+  --t-line: #4a4e54;
+  --t-accent: #ff7a1a;
+  --t-accent2: #ff9a3d;
+  --t-onaccent: #1b1c1e;
+  --t-headfont: "Oswald", sans-serif;
+  --t-headw: 600;
+  --t-headtt: uppercase;
+  --t-headls: 1px;
+  --t-radius: 4px;
+  --t-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 14px 30px rgba(0, 0, 0, 0.45);
+  --t-inputbg: #141618;
+  --t-metricbg: #141618;
+  --t-btnbg: linear-gradient(180deg, #33373c, #232629);
+}
+
+.experiment-id-workpower::before {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0 2px, transparent 2px 90px),
+    radial-gradient(circle at 50% 0%, rgba(255, 122, 26, 0.08), transparent 45%),
+    #191c1f;
+}
+
+.experiment-id-workpower .experiment-dossier {
+  grid-template-columns: 105px minmax(0, 1fr) 330px;
+  border-top: 12px solid;
+  border-image: repeating-linear-gradient(-45deg, #ff7a1a 0 16px, #141618 16px 32px) 12;
+  background: linear-gradient(180deg, #2a2d31, #1e2124);
+}
+
+.experiment-id-workpower .dossier-visual {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 122, 26, 0.2), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 6px, transparent 6px 12px),
+    #141618;
+}
+
+.experiment-id-workpower .dossier-big-symbol { font-family: "Oswald", sans-serif; }
+.experiment-id-workpower .creator-panel { background: rgba(0, 0, 0, 0.2); }
+.experiment-id-workpower .metric { border-radius: 0; border-left: 3px solid #ff7a1a; }
+.experiment-id-workpower .panel-title::after { content: ""; display: inline-block; width: 8px; height: 8px; margin-left: 8px; border-radius: 50%; background: #ff7a1a; box-shadow: 0 0 8px rgba(255, 122, 26, 0.8); }
+.experiment-id-workpower .btn-primary { font-weight: 700; letter-spacing: 1px; }
+.experiment-id-workpower .canvas-wrap { border-radius: 4px; }
+.experiment-id-workpower .footer-line::before { content: "⚠ "; color: #ff7a1a; }
+
+/* =========================================================
+   11 · DENSITY — пастельная лаборатория, мягкие формы
+   ========================================================= */
+
+.experiment-id-density {
+  --t-ink: #4a3560;
+  --t-muted: #9a82b5;
+  --t-panel: #ffffff;
+  --t-line: #ecd9f5;
+  --t-accent: #a06cd5;
+  --t-accent2: #5fd0a5;
+  --t-onaccent: #ffffff;
+  --t-headfont: "Comfortaa", sans-serif;
+  --t-headw: 700;
+  --t-headls: -1px;
+  --t-headsize: clamp(34px, 4.4vw, 54px);
+  --t-mono: "Comfortaa", sans-serif;
+  --t-radius: 24px;
+  --t-shadow: 0 16px 40px rgba(160, 108, 213, 0.18);
+  --t-inputbg: #faf4ff;
+  --t-metricbg: linear-gradient(135deg, #fdf2f8, #effaf4);
+  --t-btnbg: #faf4ff;
+  --t-formbg: #faf4ff;
+}
+
+.experiment-id-density::before {
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 182, 213, 0.35), transparent 32%),
+    radial-gradient(circle at 82% 12%, rgba(160, 108, 213, 0.2), transparent 30%),
+    radial-gradient(circle at 70% 85%, rgba(95, 208, 165, 0.22), transparent 30%),
+    linear-gradient(160deg, #fdeef5, #eef7f2 60%, #f2edfb);
+}
+
+.experiment-id-density .experiment-dossier {
+  border: 0;
+  border-left: 0;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 50px rgba(160, 108, 213, 0.22);
+}
+
+.experiment-id-density .dossier-visual {
+  border: 0;
+  border-radius: 30px 0 0 30px;
+  background:
+    radial-gradient(circle at 40% 34%, #ffd6ea 0 26px, transparent 27px),
+    radial-gradient(circle at 62% 60%, #d5f5e6 0 20px, transparent 21px),
+    radial-gradient(circle at 34% 72%, #e7dbfa 0 16px, transparent 17px),
+    rgba(255, 255, 255, 0.4);
+}
+
+.experiment-id-density .dossier-big-symbol { color: #a06cd5; }
+.experiment-id-density .panel { border: 0; }
+.experiment-id-density .panel-header { border-bottom: 2px dashed #ecd9f5; }
+.experiment-id-density .metric { border: 0; }
+.experiment-id-density .metric-value { color: #a06cd5; font-weight: 700; font-size: 16px; }
+.experiment-id-density .btn { border: 2px solid #ecd9f5; }
+.experiment-id-density .btn-primary { border: 0; box-shadow: 0 8px 22px rgba(160, 108, 213, 0.4); }
+.experiment-id-density .badge { border-radius: 999px; border: 0; background: #ffd6ea; color: #b3417d; }
+.experiment-id-density .formula { border-left: 0; border-radius: 16px; }
+.experiment-id-density .canvas-wrap { border: 0; border-radius: 20px; }
+.experiment-id-density .eyebrow { color: #d16ba5; }
+
+/* =========================================================
+   12 · ENERGY — синтвейв: неоновый закат
+   ========================================================= */
+
+.experiment-id-energy {
+  --t-ink: #fdf3ff;
+  --t-muted: #b18cd6;
+  --t-panel: rgba(35, 12, 66, 0.75);
+  --t-line: rgba(255, 113, 206, 0.4);
+  --t-accent: #ff71ce;
+  --t-accent2: #01cdfe;
+  --t-onaccent: #2a0a45;
+  --t-headfont: "Unbounded", sans-serif;
+  --t-headw: 800;
+  --t-headtt: uppercase;
+  --t-headls: 1px;
+  --t-headsize: clamp(30px, 4.2vw, 52px);
+  --t-radius: 14px;
+  --t-shadow: 0 0 34px rgba(255, 113, 206, 0.16);
+  --t-inputbg: rgba(19, 6, 40, 0.85);
+  --t-metricbg: rgba(19, 6, 40, 0.6);
+  --t-btnbg: rgba(19, 6, 40, 0.8);
+}
+
+.experiment-id-energy::before {
+  background:
+    linear-gradient(transparent 62%, rgba(1, 205, 254, 0.14) 63%, transparent 64%),
+    repeating-linear-gradient(0deg, rgba(1, 205, 254, 0.09) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(90deg, rgba(1, 205, 254, 0.09) 0 1px, transparent 1px 44px),
+    radial-gradient(ellipse at 50% 30%, rgba(255, 113, 206, 0.22), transparent 55%),
+    linear-gradient(180deg, #160b29, #2a0a45 55%, #160b29);
+}
+
+.experiment-id-energy h1 {
+  background: linear-gradient(90deg, #ff71ce, #fffb96, #01cdfe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(255, 113, 206, 0.45));
+}
+
+.experiment-id-energy .experiment-dossier {
+  background:
+    linear-gradient(115deg, rgba(255, 113, 206, 0.12), transparent 40%, rgba(1, 205, 254, 0.1)),
+    rgba(35, 12, 66, 0.75);
+  border-color: rgba(255, 113, 206, 0.4);
+  box-shadow: 0 0 40px rgba(255, 113, 206, 0.18);
+}
+
+.experiment-id-energy .dossier-visual {
+  background:
+    repeating-linear-gradient(0deg, rgba(1, 205, 254, 0.12) 0 2px, transparent 2px 14px),
+    #160b29;
+}
+
+.experiment-id-energy .dossier-big-symbol { text-shadow: 0 0 30px #ff71ce; }
+.experiment-id-energy .btn-primary { background: linear-gradient(90deg, #ff71ce, #b967ff); color: #fff; border: 0; box-shadow: 0 0 22px rgba(255, 113, 206, 0.5); }
+.experiment-id-energy .btn-primary:hover { background: linear-gradient(90deg, #01cdfe, #05ffa1); }
+.experiment-id-energy .metric-value { color: #fffb96; text-shadow: 0 0 12px rgba(255, 251, 150, 0.4); }
+.experiment-id-energy .formula { border-left-color: #01cdfe; background: rgba(1, 205, 254, 0.06); }
+.experiment-id-energy .lab-main > .panel:nth-child(2) .panel-header { border-bottom-color: rgba(1, 205, 254, 0.4); }
+.experiment-id-energy .badge { border-color: #01cdfe; color: #01cdfe; }
+
+/* =========================================================
+   13 · ELECTRICITY — фосфорный терминал 1983
+   ========================================================= */
+
+.experiment-id-electricity {
+  --t-ink: #33ff66;
+  --t-muted: #1f9e46;
+  --t-panel: #020a04;
+  --t-line: #1f4d2e;
+  --t-accent: #33ff66;
+  --t-accent2: #7cff9e;
+  --t-onaccent: #02120a;
+  --t-font: "DM Mono", monospace;
+  --t-headfont: "Rubik Mono One", "DM Mono", monospace;
+  --t-headw: 400;
+  --t-headls: 0;
+  --t-headtt: uppercase;
+  --t-headsize: clamp(26px, 3.6vw, 44px);
+  --t-shadow: 0 0 24px rgba(51, 255, 102, 0.12), inset 0 0 24px rgba(51, 255, 102, 0.05);
+  --t-inputbg: #000000;
+  --t-metricbg: #000000;
+  --t-btnbg: #02120a;
+  --t-formbg: rgba(51, 255, 102, 0.05);
+}
+
+.experiment-id-electricity::before {
+  background:
+    repeating-linear-gradient(0deg, rgba(51, 255, 102, 0.05) 0 1px, transparent 1px 4px),
+    radial-gradient(ellipse at 50% 40%, rgba(51, 255, 102, 0.07), transparent 60%),
+    #000000;
+}
+
+.experiment-id-electricity .experiment-dossier {
+  border-top: 1px solid #1f4d2e;
+  border-bottom: 1px solid #1f4d2e;
+  background: #020a04;
+}
+
+.experiment-id-electricity .experiment-dossier::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(51, 255, 102, 0.04) 0 2px, transparent 2px 5px);
+}
+
+.experiment-id-electricity .dossier-visual { background: radial-gradient(circle, rgba(51, 255, 102, 0.1) 1px, transparent 2px) 0 0 / 16px 16px, #000; }
+
+.experiment-id-electricity h1 { text-shadow: 0 0 14px rgba(51, 255, 102, 0.7), 0 0 42px rgba(51, 255, 102, 0.35); }
+.experiment-id-electricity h1::before { content: "> "; }
+.experiment-id-electricity .eyebrow::before { content: "["; }
+.experiment-id-electricity .eyebrow::after { content: "]"; }
+.experiment-id-electricity .page-subtitle { color: #1f9e46; }
+.experiment-id-electricity .page-subtitle::before { content: "$ "; color: #33ff66; }
+.experiment-id-electricity .panel-title::before { content: ":: "; }
+.experiment-id-electricity .metric-value { color: #33ff66; text-shadow: 0 0 10px rgba(51, 255, 102, 0.5); }
+.experiment-id-electricity .btn { text-transform: uppercase; }
+.experiment-id-electricity .btn-primary { box-shadow: 0 0 20px rgba(51, 255, 102, 0.45); }
+.experiment-id-electricity .formula { border-left: 0; }
+.experiment-id-electricity .formula::before { content: ">> "; color: #1f9e46; }
+.experiment-id-electricity .badge { border-style: dashed; }
+.experiment-id-electricity .footer-line span::before { content: "~/"; }
+
+/* =========================================================
+   14 · CIRCUIT — макетная плата на миллиметровке
+   ========================================================= */
+
+.experiment-id-circuit {
+  --t-ink: #22303c;
+  --t-muted: #6b7f8f;
+  --t-panel: #ffffff;
+  --t-line: #22303c;
+  --t-accent: #ff6b35;
+  --t-accent2: #e8531a;
+  --t-onaccent: #ffffff;
+  --t-headfont: "Oswald", sans-serif;
+  --t-headw: 600;
+  --t-headtt: uppercase;
+  --t-headls: 1px;
+  --t-bw: 2px;
+  --t-radius: 3px;
+  --t-shadow: 4px 4px 0 rgba(34, 48, 60, 0.18);
+  --t-inputbg: #ffffff;
+  --t-metricbg: #fff9f4;
+  --t-btnbg: #ffffff;
+}
+
+.experiment-id-circuit::before {
+  background:
+    radial-gradient(circle, rgba(34, 48, 60, 0.22) 1px, transparent 1.6px),
+    #f4f1ea;
+  background-size: 22px 22px;
+}
+
+.experiment-id-circuit .experiment-dossier {
+  grid-template-columns: 120px minmax(0, 1fr) 320px;
+  transform: none;
+  background: #fff;
+}
+
+.experiment-id-circuit .lab-main > .panel:first-child { border-left: 2px solid #22303c; }
+
+.experiment-id-circuit .dossier-visual {
+  background:
+    linear-gradient(90deg, transparent 48%, #ff6b35 48% 52%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, #ff6b35 48% 52%, transparent 52%),
+    radial-gradient(circle at 50% 50%, #fff 0 8px, #ff6b35 8px 11px, transparent 11px),
+    #f4f1ea;
+}
+
+.experiment-id-circuit .dossier-big-symbol { color: #ff6b35; }
+.experiment-id-circuit .eyebrow { color: #ff6b35; }
+.experiment-id-circuit .eyebrow::before { content: "⚡ "; }
+.experiment-id-circuit .panel-title { color: #22303c; }
+.experiment-id-circuit .panel-title::before { content: "◦ "; color: #ff6b35; }
+.experiment-id-circuit .metric-value { color: #e8531a; font-weight: 700; }
+.experiment-id-circuit .formula { background: #fff9f4; border: 2px solid #22303c; border-left: 6px solid #ff6b35; }
+.experiment-id-circuit .btn-primary { background: #ff6b35; }
+.experiment-id-circuit .diag-fill { background: repeating-linear-gradient(90deg, #ff6b35 0 8px, #22303c 8px 10px); }
+
+/* =========================================================
+   15 · OPTICS — свет и стекло, спектр на белом
+   ========================================================= */
+
+.experiment-id-optics {
+  --t-ink: #16213e;
+  --t-muted: #66779f;
+  --t-panel: rgba(255, 255, 255, 0.72);
+  --t-line: #d3ddf5;
+  --t-accent: #5a6cf0;
+  --t-accent2: #e8538d;
+  --t-onaccent: #ffffff;
+  --t-headfont: "Poiret One", sans-serif;
+  --t-headw: 400;
+  --t-headls: 2px;
+  --t-headsize: clamp(42px, 5.4vw, 68px);
+  --t-radius: 18px;
+  --t-shadow: 0 18px 45px rgba(90, 108, 240, 0.14);
+  --t-inputbg: #ffffff;
+  --t-metricbg: rgba(255, 255, 255, 0.65);
+  --t-btnbg: #ffffff;
+}
+
+.experiment-id-optics::before {
+  background:
+    radial-gradient(ellipse at 12% 12%, rgba(255, 255, 255, 0.9), transparent 40%),
+    linear-gradient(160deg, #eef3ff, #fdf4f9 55%, #eefcf6);
+}
+
+.experiment-id-optics .experiment-dossier {
+  border: 0;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.experiment-id-optics .experiment-dossier::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #f94144, #f3722c, #f9c74f, #90be6d, #43aa8b, #577590, #9b5de5);
+}
+
+.experiment-id-optics .dossier-visual {
+  border: 0;
+  background:
+    conic-gradient(from 180deg at 50% 50%, rgba(249, 65, 68, 0.12), rgba(249, 199, 79, 0.12), rgba(67, 170, 139, 0.12), rgba(87, 117, 250, 0.12), rgba(155, 93, 229, 0.12), rgba(249, 65, 68, 0.12)),
+    rgba(255, 255, 255, 0.4);
+}
+
+.experiment-id-optics .canvas-wrap { box-shadow: inset 0 0 60px rgba(90, 108, 240, 0.06); }
+.experiment-id-optics .lab-main > .panel:first-child { border-radius: 18px; }
+.experiment-id-optics .panel { backdrop-filter: blur(8px); }
+.experiment-id-optics .badge { border-radius: 999px; background: linear-gradient(90deg, rgba(249, 65, 68, 0.14), rgba(155, 93, 229, 0.14)); border: 0; color: #5a6cf0; }
+.experiment-id-optics .btn-primary { border: 0; background: linear-gradient(90deg, #5a6cf0, #9b5de5); box-shadow: 0 10px 26px rgba(90, 108, 240, 0.35); }
+.experiment-id-optics .metric-value { color: #5a6cf0; }
+.experiment-id-optics .formula { border-left-color: #e8538d; }
+
+/* =========================================================
+   16 · REFRACTION — призма: луч в темноте
+   ========================================================= */
+
+.experiment-id-refraction {
+  --t-ink: #f2f3ff;
+  --t-muted: #8f94b8;
+  --t-panel: #131320;
+  --t-line: #2b2b45;
+  --t-accent: #8ed2ff;
+  --t-accent2: #f0abfc;
+  --t-onaccent: #0d0d12;
+  --t-headfont: "Unbounded", sans-serif;
+  --t-headw: 400;
+  --t-headls: 0;
+  --t-headsize: clamp(30px, 4.2vw, 52px);
+  --t-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+  --t-inputbg: #0d0d16;
+  --t-metricbg: #0d0d16;
+  --t-btnbg: #191926;
+}
+
+.experiment-id-refraction::before {
+  background:
+    conic-gradient(from 200deg at 78% -10%, rgba(249, 65, 68, 0.16), rgba(249, 199, 79, 0.16), rgba(67, 170, 139, 0.16), rgba(142, 210, 255, 0.16), rgba(155, 93, 229, 0.16), transparent 62%),
+    #0d0d12;
+}
+
+.experiment-id-refraction .experiment-dossier {
+  clip-path: none;
+  border: 0;
+  position: relative;
+  background: #131320;
+  overflow: hidden;
+}
+
+.experiment-id-refraction .experiment-dossier::before {
+  content: "";
+  position: absolute;
+  left: -10%; right: -10%; top: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #f94144, #f9c74f, #90be6d, #43aa8b, #8ed2ff, #9b5de5, transparent);
+}
+
+.experiment-id-refraction .lab-main > .panel:first-child {
+  border-radius: 0;
+  border: 0;
+  position: relative;
+  background: #131320;
+}
+
+.experiment-id-refraction .lab-main > .panel:first-child::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f94144, #f9c74f, #90be6d, #43aa8b, #8ed2ff, #9b5de5);
+}
+
+.experiment-id-refraction .dossier-visual {
+  background:
+    linear-gradient(115deg, transparent 42%, rgba(142, 210, 255, 0.22) 48%, rgba(240, 171, 252, 0.22) 52%, transparent 58%),
+    #0d0d16;
+}
+
+.experiment-id-refraction .dossier-big-symbol { background: linear-gradient(90deg, #8ed2ff, #f0abfc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.experiment-id-refraction .metric-value { color: #f0abfc; }
+.experiment-id-refraction .btn-primary { background: linear-gradient(90deg, #8ed2ff, #f0abfc); border: 0; }
+.experiment-id-refraction .formula { border: 1px solid #2b2b45; border-left: 4px solid; border-image: linear-gradient(180deg, #8ed2ff, #f0abfc) 1; background: #0d0d16; }
+
+/* =========================================================
+   17 · MIRROR — ар-деко: чёрное золото
+   ========================================================= */
+
+.experiment-id-mirror {
+  --t-ink: #e8d9a8;
+  --t-muted: #9a8a5e;
+  --t-panel: #101010;
+  --t-line: #d4af37;
+  --t-accent: #d4af37;
+  --t-accent2: #f1d573;
+  --t-onaccent: #101010;
+  --t-headfont: "Poiret One", sans-serif;
+  --t-headw: 400;
+  --t-headtt: uppercase;
+  --t-headls: 6px;
+  --t-headsize: clamp(32px, 4.4vw, 56px);
+  --t-mono: "Poiret One", sans-serif;
+  --t-shadow: 0 0 0 1px #101010, 0 0 0 2px #d4af37, 0 0 0 6px #101010, 0 0 0 7px rgba(212, 175, 55, 0.55);
+  --t-inputbg: #000000;
+  --t-metricbg: #000000;
+  --t-btnbg: #101010;
+}
+
+.experiment-id-mirror::before {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12), transparent 45%),
+    repeating-conic-gradient(from 0deg at 50% -20%, rgba(212, 175, 55, 0.05) 0deg 6deg, transparent 6deg 12deg),
+    #0b0a08;
+}
+
+.experiment-id-mirror .experiment-dossier {
+  background:
+    repeating-conic-gradient(from 0deg at 100% 0%, rgba(212, 175, 55, 0.06) 0deg 8deg, transparent 8deg 16deg),
+    #101010;
+}
+
+.experiment-id-mirror .dossier-visual {
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 30px, rgba(212, 175, 55, 0.35) 31px 32px, transparent 33px),
+    radial-gradient(circle at 50% 50%, transparent 0 52px, rgba(212, 175, 55, 0.2) 53px 54px, transparent 55px),
+    #000;
+}
+
+.experiment-id-mirror .dossier-big-symbol { font-family: "Poiret One", sans-serif; color: #d4af37; }
+.experiment-id-mirror h1 { text-align: center; }
+.experiment-id-mirror .eyebrow { text-align: center; letter-spacing: 5px; }
+.experiment-id-mirror .page-heading { flex-direction: column; align-items: center; text-align: center; }
+.experiment-id-mirror .page-subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+.experiment-id-mirror .panel-title { font-family: "Poiret One", sans-serif; font-size: 14px; letter-spacing: 4px; color: #d4af37; }
+.experiment-id-mirror .metric-label { font-family: "Poiret One", sans-serif; letter-spacing: 2px; }
+.experiment-id-mirror .metric-value { color: #f1d573; font-size: 15px; }
+.experiment-id-mirror .btn { font-family: "Poiret One", sans-serif; letter-spacing: 3px; text-transform: uppercase; }
+.experiment-id-mirror .btn-primary { background: #d4af37; color: #101010; }
+.experiment-id-mirror .formula { border-left: 0; border-top: 1px solid rgba(212, 175, 55, 0.5); border-bottom: 1px solid rgba(212, 175, 55, 0.5); text-align: center; background: transparent; }
+.experiment-id-mirror .badge { border-color: #d4af37; color: #d4af37; letter-spacing: 3px; }
+.experiment-id-mirror .footer-line { font-family: "Poiret One", sans-serif; letter-spacing: 4px; }
+
+/* =========================================================
+   18 · HEATING — кузница: жар и угли
+   ========================================================= */
+
+.experiment-id-heating {
+  --t-ink: #ffe8d6;
+  --t-muted: #c98f66;
+  --t-panel: #241109;
+  --t-line: #572a14;
+  --t-accent: #ff5a26;
+  --t-accent2: #ffb347;
+  --t-onaccent: #2b1005;
+  --t-headfont: "Russo One", sans-serif;
+  --t-headw: 400;
+  --t-headtt: uppercase;
+  --t-headls: 1px;
+  --t-radius: 10px;
+  --t-shadow: 0 0 34px rgba(255, 90, 38, 0.14);
+  --t-inputbg: #160a05;
+  --t-metricbg: #160a05;
+  --t-btnbg: #2e150a;
+}
+
+.experiment-id-heating::before {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(255, 90, 38, 0.22), transparent 55%),
+    radial-gradient(ellipse at 50% 115%, rgba(255, 179, 71, 0.2), transparent 40%),
+    radial-gradient(circle at 20% 20%, rgba(255, 90, 38, 0.05), transparent 30%),
+    #160a05;
+}
+
+.experiment-id-heating .experiment-dossier {
+  border: 1px solid #572a14;
+  border-left: 1px solid #572a14;
+  background:
+    radial-gradient(ellipse at 8% 100%, rgba(255, 90, 38, 0.2), transparent 50%),
+    #241109;
+}
+
+.experiment-id-heating .dossier-visual {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(255, 90, 38, 0.4), transparent 60%),
+    radial-gradient(ellipse at 50% 120%, rgba(255, 179, 71, 0.35), transparent 45%),
+    #160a05;
+}
+
+.experiment-id-heating .dossier-big-symbol { color: #ffb347; text-shadow: 0 0 30px rgba(255, 90, 38, 0.8); }
+.experiment-id-heating h1 { text-shadow: 0 0 26px rgba(255, 90, 38, 0.5); }
+.experiment-id-heating .lab-main > .panel:first-child { box-shadow: 0 0 55px rgba(255, 90, 38, 0.2); }
+.experiment-id-heating .metric-value { color: #ffb347; }
+.experiment-id-heating .metric { border-left: 3px solid #ff5a26; }
+.experiment-id-heating .btn-primary { background: linear-gradient(90deg, #ff5a26, #ffb347); border: 0; box-shadow: 0 0 24px rgba(255, 90, 38, 0.45); }
+.experiment-id-heating .badge { background: rgba(255, 90, 38, 0.14); color: #ffb347; border-color: #572a14; }
+.experiment-id-heating .formula { border-left-color: #ff5a26; background: rgba(255, 90, 38, 0.07); }
+.experiment-id-heating input[type="range"] { accent-color: #ff5a26; }
+.experiment-id-heating .diag-fill { background: linear-gradient(90deg, #ffb347, #ff5a26); }
+
+/* =========================================================
+   19 · GASLAW — стерильная лаборатория
+   ========================================================= */
+
+.experiment-id-gaslaw {
+  --t-ink: #123c33;
+  --t-muted: #5d857a;
+  --t-panel: #ffffff;
+  --t-line: #cfe0da;
+  --t-accent: #0e7c66;
+  --t-accent2: #0a5f4f;
+  --t-onaccent: #ffffff;
+  --t-headfont: "Comfortaa", sans-serif;
+  --t-headw: 600;
+  --t-headls: -1px;
+  --t-headsize: clamp(34px, 4.4vw, 54px);
+  --t-radius: 4px;
+  --t-shadow: 0 2px 0 #cfe0da, 0 14px 34px rgba(14, 124, 102, 0.1);
+  --t-inputbg: #f4faf8;
+  --t-metricbg: #f4faf8;
+  --t-btnbg: #f4faf8;
+  --t-formbg: #eef7f3;
+}
+
+.experiment-id-gaslaw::before {
+  background:
+    linear-gradient(rgba(14, 124, 102, 0.045) 1px, transparent 1px),
+    #eef4f2;
+  background-size: 100% 34px;
+}
+
+.experiment-id-gaslaw .lab-layout { grid-template-columns: 300px minmax(0, 1fr); }
+.experiment-id-gaslaw .lab-side { order: -1; }
+
+.experiment-id-gaslaw .experiment-dossier { border: 1px solid #cfe0da; background: #fff; }
+.experiment-id-gaslaw .experiment-dossier::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: #0e7c66; }
+.experiment-id-gaslaw .dossier-visual { background: radial-gradient(circle, rgba(14, 124, 102, 0.16) 0 3px, transparent 4px) 0 0 / 24px 24px, #f4faf8; }
+.experiment-id-gaslaw .dossier-big-symbol { color: #0e7c66; }
+.experiment-id-gaslaw .lab-side .panel:nth-child(2) { border-top: 1px solid #cfe0da; }
+.experiment-id-gaslaw .panel-header { background: #f4faf8; }
+.experiment-id-gaslaw .panel-title { color: #0e7c66; font-weight: 700; }
+.experiment-id-gaslaw .badge { background: #0e7c66; color: #fff; border: 0; border-radius: 3px; }
+.experiment-id-gaslaw .metric-value { color: #0e7c66; font-weight: 700; font-size: 15px; }
+.experiment-id-gaslaw .metric { border: 1px solid #cfe0da; }
+.experiment-id-gaslaw .btn-primary { background: #0e7c66; }
+.experiment-id-gaslaw .formula { border-left: 4px solid #0e7c66; }
+
+/* =========================================================
+   20 · THERMAL — расплавленный металл, литейный цех
+   ========================================================= */
+
+.experiment-id-thermal {
+  --t-ink: #f2ede6;
+  --t-muted: #a89c8c;
+  --t-panel: linear-gradient(180deg, #26221e, #1a1714);
+  --t-line: #4a423a;
+  --t-accent: #ff9d00;
+  --t-accent2: #ff3d00;
+  --t-onaccent: #1a1714;
+  --t-headfont: "Unbounded", sans-serif;
+  --t-headw: 900;
+  --t-headtt: uppercase;
+  --t-headls: 0;
+  --t-headsize: clamp(28px, 4vw, 48px);
+  --t-radius: 2px;
+  --t-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+  --t-inputbg: #100e0c;
+  --t-metricbg: #100e0c;
+  --t-btnbg: linear-gradient(180deg, #2e2a26, #1a1714);
+}
+
+.experiment-id-thermal::before {
+  background:
+    radial-gradient(ellipse at 85% 100%, rgba(255, 61, 0, 0.14), transparent 45%),
+    radial-gradient(ellipse at 10% 0%, rgba(255, 157, 0, 0.07), transparent 35%),
+    #141210;
+}
+
+.experiment-id-thermal .experiment-dossier {
+  background:
+    linear-gradient(90deg, rgba(255, 157, 0, 0.08), transparent 45%),
+    repeating-linear-gradient(0deg, rgba(255, 157, 0, 0.025) 0 1px, transparent 1px 12px),
+    linear-gradient(180deg, #26221e, #1a1714);
+}
+
+.experiment-id-thermal .lab-main > .panel:first-child { border-bottom: 4px solid; border-image: linear-gradient(90deg, #ff9d00, #ff3d00) 1; }
+
+.experiment-id-thermal .dossier-visual {
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(255, 61, 0, 0.3) 78%, rgba(255, 157, 0, 0.45)),
+    #100e0c;
+}
+
+.experiment-id-thermal .dossier-big-symbol { background: linear-gradient(180deg, #ff9d00, #ff3d00); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.experiment-id-thermal h1 { background: linear-gradient(90deg, #f2ede6 30%, #ff9d00, #ff3d00); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.experiment-id-thermal .metric-value { color: #ffb84d; }
+.experiment-id-thermal .btn-primary { background: linear-gradient(90deg, #ff9d00, #ff3d00); color: #fff; border: 0; }
+.experiment-id-thermal .formula { border-left: 0; border-top: 3px solid; border-image: linear-gradient(90deg, #ff9d00, #ff3d00) 1; background: #100e0c; }
+.experiment-id-thermal input[type="range"] { accent-color: #ff9d00; }
+.experiment-id-thermal .badge { background: linear-gradient(90deg, rgba(255, 157, 0, 0.16), rgba(255, 61, 0, 0.16)); border-color: #4a423a; color: #ffb84d; }
+
+/* =========================================================
+   адаптив для экспериментальных тем
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .experiment-id-freefall .lab-layout,
+  .experiment-id-gaslaw .lab-layout { grid-template-columns: 300px minmax(0, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .experiment-id-freefall .lab-layout,
+  .experiment-id-gaslaw .lab-layout { grid-template-columns: 1fr; }
+  .experiment-id-freefall .lab-side,
+  .experiment-id-gaslaw .lab-side { order: 0; position: static; }
+  .experiment-id-uniform .lab-side { grid-template-columns: 1fr; }
+  .experiment-id-collision .lab-main > .panel,
+  .experiment-id-collision .lab-side .panel,
+  .experiment-id-collision .experiment-dossier { transform: none; }
+}
